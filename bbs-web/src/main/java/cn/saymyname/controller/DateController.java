@@ -13,15 +13,12 @@ import java.util.Date;
 public class DateController {
 
 
-    public void createDate(){
-
+    public void insertDate(){
 
         Calendar calendar = Calendar.getInstance();
         Date time = calendar.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String format = sdf.format(time);
-
-
 
     }
 

@@ -62,7 +62,7 @@
         </foreach>
     </delete>
 
-    <select id="queryRoleIdsByUserId" parameterType="int" resultType="Integer[]">
+    <select id="queryRoleIdsByUserId" parameterType="int" resultType="Integer">
         select user_id from t_user_role where user_id = #{userId}
     </select>
     

@@ -19,9 +19,6 @@
         .tree-closed {
             height : 40px;
         }
-        .tree-expanded {
-            height : auto;
-        }
     </style>
 </head>
 
@@ -66,7 +63,7 @@
                 <%@ include file="/WEB-INF/jsp/common/menu.jsp"%>
             </div>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <%--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">控制面板</h1>
 
             <div class="row placeholders">
@@ -91,9 +88,11 @@
                     <span class="text-muted">Something else</span>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div>
 </div>
+
+
 <script src="${APP_PATH}/jquery/jquery-2.1.1.min.js"></script>
 <script src="${APP_PATH}/bootstrap/js/bootstrap.min.js"></script>
 <script src="${APP_PATH}/script/docs.min.js"></script>

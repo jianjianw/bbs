@@ -4,6 +4,9 @@
 <mapper namespace="cn.saymyname.dao.DateMapper" >
 
 
-
+        <insert id="insertDate">
+            insert into t_date (create_time, date_str) VALUES
+                (#{createTime},#{dateStr})
+        </insert>
 
 </mapper>

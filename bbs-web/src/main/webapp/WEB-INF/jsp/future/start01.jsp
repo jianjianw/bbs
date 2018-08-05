@@ -78,7 +78,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> 张三<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="member01.jsp">会员中心</a></li>
+                    <li><a href="../weight/index.jsp">会员中心</a></li>
                     <li><a href="message.html">消息 <span class="badge badge-success">42</span></a></li>
                     <li class="divider"></li>
                     <li><a href="index.html">退出系统</a></li>
@@ -109,7 +109,7 @@
                                     <a rel="nofollow" href="javascript:;"><i class="glyphicon glyphicon-edit"></i> 发起项目</a>
                                 </li>
                                 <li>
-                                    <a rel="nofollow" href="member02.jsp"><i class="glyphicon glyphicon-user"></i> 我的众筹</a>
+                                    <a rel="nofollow" href="../weight/member02.jsp"><i class="glyphicon glyphicon-user"></i> 我的众筹</a>
                                 </li>
                             </ul>
                         </div>

@@ -35,7 +35,6 @@
 
 			<mvc:exclude-mapping path="/login" />
 			<mvc:exclude-mapping path="/future/**" />
-
 			<mvc:exclude-mapping path="/doAJAXLogin" />
 			<mvc:exclude-mapping path="/bootstrap/**" />
 			<mvc:exclude-mapping path="/css/**" />

@@ -61,6 +61,16 @@
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/layer/layer.js"></script>
     <script>
+
+    $(function(){
+        $('#password').bind('keypress',function(event){
+            if(event.keyCode == "13")
+            {
+                dologin();
+            }
+        });
+    });
+
     function dologin() {
         // 非空校验
         var username = $("#username").val();

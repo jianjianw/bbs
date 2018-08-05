@@ -43,7 +43,7 @@
 				<div class="list-group-item active">
 					体重变化指标<span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>
 				</div>
-				<div class="list-group-item " style="cursor:pointer;" onclick="window.location.href='${APP_PATH}/future/member02'">
+				<div class="list-group-item " style="cursor:pointer;" onclick="window.location.href='${APP_PATH}/weight/member02'">
 					今日体重记录<span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>
 				</div>
 			</div>
@@ -105,13 +105,13 @@ $('#myTab1 a').click(function (e) {
         // 指定图表的配置项和数据
 option = {
     title: {
-        text: '七日年化收益率(%)'
+        text: '身体七日变化'
     },
     tooltip: {
         trigger: 'axis'
     },
     legend: {
-        data:['体重','股票']
+        data:['体重','腰围']
     },
     toolbox: {
         show: false,
@@ -154,7 +154,7 @@ option = {
             }
         },
         {
-            name:'股票',
+            name:'腰围',
             type:'line',
             data:[1, -2, 2, 5, 3, 2, 4],
             markPoint: {
@@ -186,7 +186,10 @@ option = {
     ]
 };
 myChart.setOption(option);
-        var myChart1 = echarts.init(document.getElementById('main1'));
+
+
+
+var myChart1 = echarts.init(document.getElementById('main1'));
 
         // 指定图表的配置项和数据
 option1 = {

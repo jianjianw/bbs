@@ -93,7 +93,7 @@
 				</div>
 			</div>
 			<div class="list-group">
-				<div class="list-group-item" style="cursor:pointer;" onclick="window.location.href='${APP_PATH}/future/member01'">
+				<div class="list-group-item" style="cursor:pointer;" onclick="window.location.href='${APP_PATH}/weight/index'">
                     体重变化指标<span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>
 				</div>
 				<div class="list-group-item active">

@@ -56,68 +56,20 @@
 	</style>
   </head>
   <body>
- <div class="navbar-wrapper">
-      <div class="container">
-			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			  <div class="container">
-				<div class="navbar-header">
-				  <a class="navbar-brand" href="index.html" style="font-size:32px;">尚筹网-创意产品众筹平台</a>
-				</div>
-            <div id="navbar" class="navbar-collapse collapse" style="float:right;">
-              <ul class="nav navbar-nav">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> 张三<span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="member01.jsp"><i class="glyphicon glyphicon-scale"></i> 会员中心</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 消息</a></li>
-                    <li class="divider"></li>
-                    <li><a href="index.html"><i class="glyphicon glyphicon-off"></i> 退出系统</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-			  </div>
-			</nav>
-      </div>
-    </div>
+
+  <%@include file="/WEB-INF/jsp/common/top.jsp"%>
 
     <div class="container theme-showcase" role="main">
 
         <div class="container">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <nav class="navbar navbar-default" role="navigation">                        
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <a rel="nofollow" href="index.html"><i class="glyphicon glyphicon-home"></i> 众筹首页</a>
-                                </li>
-                                <li >
-                                    <a rel="nofollow" href="projects.html"><i class="glyphicon glyphicon-th-large"></i> 众筹项目</a>
-                                </li>
-                                <li>
-                                    <a rel="nofollow" href="start01.jsp"><i class="glyphicon glyphicon-edit"></i> 发起众筹</a>
-                                </li>
-                                <li>
-                                    <a rel="nofollow" href="member02.jsp"><i class="glyphicon glyphicon-user"></i> 我的众筹</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    
-    
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
                     <div class="jumbotron nofollow" style="    padding-top: 10px;">
                         <h3>
-                            酷驰触控龙头，智享厨房黑科技
+                            黑科技改变小生活
                         </h3>
                         <div style="float:left;width:70%;">
-                            智能时代，酷驰触控厨房龙头，让煮妇解放双手，触发更多烹饪灵感，让美味信手拈来。
+                            永远年轻，永远热泪盈眶
                         </div>
                         <div style="float:right;">
                             <button type="button" class="btn btn-default"><i style="color:#f60" class="glyphicon glyphicon-heart"></i> 关注 111</button>
@@ -139,11 +91,11 @@
                         <div class="col-md-4 column">
                             <div class="panel panel-default" style="border-radius: 0px;">
                                 <div class="panel-heading" style="background-color: #fff;border-color: #fff;">
-                                    <span class="label label-success"><i class="glyphicon glyphicon-tag"></i> 众筹中</span>
+                                    <span class="label label-success"><i class="glyphicon glyphicon-tag"></i> 售卖中</span>
                                 </div>
                                 <div class="panel-body">
                                     <h3 >
-                                        已筹资金：￥50000.00
+                                        价格：￥50000.00
                                     </h3>
                                     <p><span>目标金额 ： 1000.00</span><span style="float:right;">达成 ： 60%</span></p>
                                     <div class="progress" style="height:10px; margin-bottom: 5px;">
@@ -151,8 +103,7 @@
                                     </div>
                                     <p>剩余 15 天</p>
                                     <div>
-                                     <p><span>已有629人支持该项目</p>
-                                     <button type="button" class="btn  btn-warning btn-lg btn-block" data-toggle="modal" data-target="#myModal">立即支持</button>
+                                     <button type="button" class="btn  btn-warning btn-lg btn-block" data-toggle="modal" data-target="#myModal">购买</button>
                                     </div>
                                 </div>
                                 <div class="panel-footer" style="    background-color: #fff;
@@ -171,10 +122,9 @@
                                         </h4>
                                         <p style="font-size:12px">
                                             酷驰是一家年轻的厨卫科技公司，我们有一支朝气蓬勃，有激情、有想法、敢实践的团队。
-
                                         </p>
                                         <p style="font-size:12px">
-                                        客服电话:0595-86218855
+                                        客服电话:0917-77777777
                                         </p>
                                     </div>
                                 </div>
@@ -189,15 +139,15 @@
 							</h3>
 						</div>
 						<div class="panel-body">
-                            <p>配送费用：包邮</p>
-                            <p>预计发放时间：项目筹款成功后的50天内</p>
+                            <p>本商品包邮</p>
+                            <p>预计发放时间：7天内</p>
                             <button type="button" class="btn  btn-warning btn-lg" onclick="window.location.href='pay-step-1.html'">支持</button>
                             <br><br>
                             <p>感谢您的支持，在众筹开始后，您将以79元的优惠价格获得“遇见彩虹?”智能插座一件（参考价208元）。</p>
 						</div>
 					</div>
                     
-					<div class="panel panel-default" style="border-radius: 0px;">
+					<%--<div class="panel panel-default" style="border-radius: 0px;">
 						<div class="panel-heading">
 							<h3 >
 								￥149.00 <span style="float:right;font-size:12px;">限额2000位，剩余1966位</span>
@@ -210,11 +160,11 @@
                             <br><br>
                             <p>感谢您的支持，在众筹开始后，您将以79元的优惠价格获得“遇见彩虹?”智能插座一件（参考价208元）。</p>
 						</div>
-					</div>
+					</div>--%>
 					<div class=" panel panel-default" style="border-radius: 0px;">
 						<div class="panel-heading">
 							<h3 >
-								风险提示
+								友情提示
 							</h3>
 						</div>
 						<div class="panel-body">
@@ -251,10 +201,10 @@
                 <div class="col-md-12 column">
                     <div id="footer">
                         <div class="footerNav">
-                             <a rel="nofollow" href="http://www.atguigu.com">关于我们</a> | <a rel="nofollow" href="http://www.atguigu.com">服务条款</a> | <a rel="nofollow" href="http://www.atguigu.com">免责声明</a> | <a rel="nofollow" href="http://www.atguigu.com">网站地图</a> | <a rel="nofollow" href="http://www.atguigu.com">联系我们</a>
+                             <a rel="nofollow" href="http://www.saymyname.cn">关于我们</a> | <a rel="nofollow" href="http://www.saymyname.cn">服务条款</a> | <a rel="nofollow" href="http://www.saymyname.cn">免责声明</a> | <a rel="nofollow" href="http://www.saymyname.cn">网站地图</a> | <a rel="nofollow" href="http://www.saymyname.cn">联系我们</a>
                         </div>
                         <div class="copyRight">
-                            Copyright ?2010-2014atguigu.com 版权所有
+                            www.saymyname.cn 版权所有
                         </div>
                     </div>
                     

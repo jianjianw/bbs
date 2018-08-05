@@ -95,31 +95,34 @@ public class DispatcherController {
         return "error";
     }
 
-
-    @RequestMapping("/future/index")
-    public String perIndex() {
-        return "future/index";
+    @RequestMapping("/shopping/index")
+    public String shopping(){
+        return "shopping/index";
     }
+
+    @RequestMapping("/shopping/project01")
+    public String project() {
+        return "shopping/project01";
+    }
+
+    @RequestMapping("/weight/index")
+    public String member() {
+        return "weight/index";
+    }
+    @RequestMapping("/weight/member02")
+    public String member02() {
+        return "weight/member02";
+    }
+
+
+
+
 
     @RequestMapping("/future/showme")
     public String showme() {
         return "future/showme";
     }
 
-    @RequestMapping("/future/member01")
-    public String member() {
-        return "future/member01";
-    }
-
-    @RequestMapping("/future/member02")
-    public String member02() {
-        return "future/member02";
-    }
-
-    @RequestMapping("/future/project01")
-    public String project() {
-        return "future/project01";
-    }
 
     @RequestMapping("/future/start01")
     public String start() {
@@ -136,7 +139,7 @@ public class DispatcherController {
     public String testEcharts() {
         return "future/testEcharts";
     }
-
+    //火烈鸟
     @RequestMapping("/future/testThrees")
     public String testThrees() {
         return "future/testThrees";

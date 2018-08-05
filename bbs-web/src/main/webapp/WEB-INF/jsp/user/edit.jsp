@@ -197,7 +197,7 @@
 						}
 					}
 				});
-			    
+			    //清空表单
 			    $("#resetBtn").click(function(){
 			    	// Jquery[0] ==> DOM
 			    	// $(DOM) ==> Jquery

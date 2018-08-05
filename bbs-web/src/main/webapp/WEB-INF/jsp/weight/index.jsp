@@ -49,24 +49,47 @@
 			</div>
 		</div>
         <div class="col-sm-9 col-md-9 column">
-        <blockquote style="border-left: 5px solid #f60;color:#f60;padding: 0 0 0 20px;">
+            <blockquote style="border-left: 5px solid #f60;color:#f60;padding: 0 0 0 20px;">
                                         <b>
                                             体重变化
                                         </b>
-                                    </blockquote>
+            </blockquote>
             <div id="main" style="width: 600px;height:400px;"></div>
             <blockquote style="border-left: 5px solid #f60;color:#f60;padding: 0 0 0 20px;">
                                         <b>
-                                            腰围变化
+                                            输入今日体重
                                         </b>
-                                    </blockquote>
-            <div id="main1" style="width: 600px;height:400px;"></div>
-            <blockquote style="border-left: 5px solid #f60;color:#f60;padding: 0 0 0 20px;">
+            </blockquote>
+            <div id="main1" style="width: 600px;height:400px;">
+
+                <form class="form-horizontal" role="form" id = "weightForm">
+                    <div class="form-group">
+                        <label for="firstname" class="col-sm-2 control-label">体重</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="firstname" name="" placeholder="kg">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">腰围</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="lastname" name="" placeholder="cm">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default" onclick="save()">保存</button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+           <%-- <blockquote style="border-left: 5px solid #f60;color:#f60;padding: 0 0 0 20px;">
                                         <b>
                                             胸围变化
                                         </b>
-                                    </blockquote>
-            <div id="main2" style="width: 600px;height:400px;"></div>
+               </blockquote>
+            <div id="main2" style="width: 600px;height:400px;"></div>--%>
 		</div>
 	</div>
 </div>
@@ -202,66 +225,33 @@ $.ajax({
     }
 });
 
-<%--$.ajax({--%>
-    <%--type : "POST",--%>
-    <%--url  : ${APP_PATH}"/date/findDates",--%>
-    <%--success : function(result) {--%>
-        <%--if (result.success) {--%>
-            <%--alert("数据加载成功");--%>
-        <%--} else {--%>
-            <%--alert("数据加载失败");--%>
-        <%--}--%>
-    <%--}--%>
-<%--});--%>
+function save(){
+    $.ajax({
+        type : "POST",
+        url  : ${APP_PATH}"/weight/save",
+        data : $("#weightForm").serialize(),
+        success : function(result) {
+            if (result.success) {
+                layer.msg("数据保存成功", {time:2000, icon:6, shift:6}, function(){
 
+                });
 
+                $("#weightForm")[0].reset();
+            } else {
+                layer.msg("数据保存失败", {time:2000, icon:5, shift:6}, function(){
 
-
-var myChart1 = echarts.init(document.getElementById('main1'));
-
-        // 指定图表的配置项和数据
-option1 = {
-    color: ['#3398DB'],
-    tooltip : {
-        trigger: 'axis',
-        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-        }
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    xAxis : [
-        {
-            type : 'category',
-            data : ['基金', '票据', '定期理财', '变现贷'],
-            axisTick: {
-                alignWithLabel: true
+                });
             }
         }
-    ],
-    yAxis : [
-        {
-            type : 'value'
-        }
-    ],
-    series : [
-        {
-            name:'直接访问',
-            type:'bar',
-            barWidth: '60%',
-            data:[10, 52, 200, 334, 390, 330, 220]
-        }
-    ]
-};
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart1.setOption(option1);
-        
-        var myChart2 = echarts.init(document.getElementById('main2'));
+    });
+}
+//清空表单
+$("#resetBtn").click(function(){
+    // Jquery[0] ==> DOM
+    // $(DOM) ==> Jquery
+    $("#userForm")[0].reset();
+});
+/*var myChart2 = echarts.init(document.getElementById('main2'));
 
         // 指定图表的配置项和数据
 option2 = {
@@ -304,7 +294,7 @@ option2 = {
 };
 
         // 使用刚指定的配置项和数据显示图表。
-        myChart2.setOption(option2);
+        myChart2.setOption(option2);*/
 	</script>
   </body>
 </html>

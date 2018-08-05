@@ -49,11 +49,14 @@ h3.break>a {
           <img src="${APP_PATH}/img/202.jpg" alt="First slide">
         </div>
         <div class="item" onclick="window.location.href='${APP_PATH}/shopping/project01'" style="cursor:pointer;">
-          <img src="${APP_PATH}/img/201.jpg" alt="Second slide">
+          <img src="${APP_PATH}/img/204.jpg" alt="Second slide">
         </div>
         <div class="item" onclick="window.location.href='${APP_PATH}/shopping/project01'" style="cursor:pointer;">
-          <img src="${APP_PATH}/img/200.jpeg" alt="Third slide">
+          <img src="${APP_PATH}/img/201.jpg" alt="Third slide">
         </div>
+		  <div class="item" onclick="window.location.href='${APP_PATH}/shopping/project01'" style="cursor:pointer;">
+			  <img src="${APP_PATH}/img/img2.jpg" alt="Third slide">
+		  </div>
       </div>
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>

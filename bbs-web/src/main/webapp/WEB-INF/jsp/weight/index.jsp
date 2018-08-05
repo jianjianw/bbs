@@ -43,8 +43,8 @@
 				<div class="list-group-item active">
 					体重变化指标<span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>
 				</div>
-				<div class="list-group-item " style="cursor:pointer;" onclick="window.location.href='${APP_PATH}/weight/member02'">
-					今日体重记录<span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>
+				<div class="list-group-item " style="cursor:pointer;" onclick="window.location.href='${APP_PATH}/weight/add'">
+                    BMI计算器<span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>
 				</div>
 			</div>
 		</div>
@@ -90,7 +90,9 @@
 	<script src="${APP_PATH}/script/docs.min.js"></script>
     <script src="${APP_PATH}/script/back-to-top.js"></script>
     <script src="${APP_PATH}/script/echarts.js"></script>
-	<script>
+    <script src="${APP_PATH}/layer/layer.js"></script>
+
+    <script>
 $('#myTab a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
@@ -100,9 +102,8 @@ $('#myTab1 a').click(function (e) {
   $(this).tab('show')
 })
 
-        var myChart = echarts.init(document.getElementById('main'));
-
-        // 指定图表的配置项和数据
+var myChart = echarts.init(document.getElementById('main'));
+// 指定图表的配置项和数据
 option = {
     title: {
         text: '身体七日变化'
@@ -185,7 +186,34 @@ option = {
         }
     ]
 };
-myChart.setOption(option);
+myChart.showLoading();
+//发送ajax
+$.ajax({
+    type : "POST",
+    url  : ${APP_PATH}"/date/findDates",
+    success : function(result) {
+        if (result.success) {
+            myChart.hideLoading();
+            option.xAxis.data = result.data;
+            myChart.setOption(option);
+        } else {
+            alert("数据加载失败");
+        }
+    }
+});
+
+<%--$.ajax({--%>
+    <%--type : "POST",--%>
+    <%--url  : ${APP_PATH}"/date/findDates",--%>
+    <%--success : function(result) {--%>
+        <%--if (result.success) {--%>
+            <%--alert("数据加载成功");--%>
+        <%--} else {--%>
+            <%--alert("数据加载失败");--%>
+        <%--}--%>
+    <%--}--%>
+<%--});--%>
+
 
 
 

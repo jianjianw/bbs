@@ -109,9 +109,9 @@ public class DispatcherController {
     public String member() {
         return "weight/index";
     }
-    @RequestMapping("/weight/member02")
+    @RequestMapping("/weight/add")
     public String member02() {
-        return "weight/member02";
+        return "weight/add";
     }
 
 

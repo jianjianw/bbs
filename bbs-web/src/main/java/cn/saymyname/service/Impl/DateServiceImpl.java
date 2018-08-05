@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class DateServiceImpl implements DateService {
@@ -26,5 +27,10 @@ public class DateServiceImpl implements DateService {
         date.setCreateTime(time);
         date.setDateStr(format);
         dateMapper.insertDate(date);
+    }
+
+    @Override
+    public List<String> findDates() {
+        return dateMapper.findDates();
     }
 }

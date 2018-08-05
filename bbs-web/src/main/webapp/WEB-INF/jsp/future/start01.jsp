@@ -109,7 +109,7 @@
                                     <a rel="nofollow" href="javascript:;"><i class="glyphicon glyphicon-edit"></i> 发起项目</a>
                                 </li>
                                 <li>
-                                    <a rel="nofollow" href="../weight/member02.jsp"><i class="glyphicon glyphicon-user"></i> 我的众筹</a>
+                                    <a rel="nofollow" href="../weight/add.jsp"><i class="glyphicon glyphicon-user"></i> 我的众筹</a>
                                 </li>
                             </ul>
                         </div>

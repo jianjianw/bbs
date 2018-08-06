@@ -521,10 +521,10 @@ h3.break>a {
 		<div class="col-md-12 column">
 			<div id="footer">
 				<div class="footerNav">
-					 <a rel="nofollow" href="http://www.atguigu.com">关于我们</a> | <a rel="nofollow" href="http://www.atguigu.com">服务条款</a> | <a rel="nofollow" href="http://www.atguigu.com">免责声明</a> | <a rel="nofollow" href="http://www.atguigu.com">网站地图</a> | <a rel="nofollow" href="http://www.atguigu.com">联系我们</a>
+					 <a rel="nofollow" href="http://www.saymyname.cn">关于我们</a> | <a rel="nofollow" href="http://www.saymyname.cn">服务条款</a> | <a rel="nofollow" href="http://www.saymyname.cn">免责声明</a> | <a rel="nofollow" href="http://www.saymyname.cn">网站地图</a> | <a rel="nofollow" href="http://www.saymyname.cn">联系我们</a>
 				</div>
 				<div class="copyRight">
-					Copyright ?2017-2017atguigu.com 版权所有
+					www.saymyname.cn 版权所有
 				</div>
 			</div>
 			

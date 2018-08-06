@@ -75,7 +75,7 @@
         </a>
       </div>
     </div>
-	<button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='${pageContext.request.contextPath}/login'">是的，我愿意承认上面的小伙子很帅。。</button>
+	<button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href='${pageContext.request.contextPath}/main'">是的，我愿意承认上面的小伙子很帅。。</button>
     </div>
         <div class="container" style="margin-top:20px;">
             <div class="row clearfix">

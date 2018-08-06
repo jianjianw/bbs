@@ -118,13 +118,13 @@
                                 <div class="col-md-9 column">
                                     <div class="">
                                         <h4>
-                                            <b>福建省南安厨卫</b> <span style="float:right;font-size:12px;" class="label label-success">已认证</span>
+                                            <b>科技小店</b> <span style="float:right;font-size:12px;" class="label label-success">已认证</span>
                                         </h4>
                                         <p style="font-size:12px">
-                                            酷驰是一家年轻的厨卫科技公司，我们有一支朝气蓬勃，有激情、有想法、敢实践的团队。
+
                                         </p>
                                         <p style="font-size:12px">
-                                        客服电话:0917-77777777
+                                            客服电话:0917-77777777
                                         </p>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
 					<div class="panel panel-default" style="border-radius: 0px;">
 						<div class="panel-heading">
 							<h3 >
-								￥1.00 <span style="float:right;font-size:12px;">无限额，447位支持者</span>
+								￥0.00 <span style="float:right;font-size:12px;">有库存，已售3件</span>
 							</h3>
 						</div>
 						<div class="panel-body">
@@ -143,7 +143,7 @@
                             <p>预计发放时间：7天内</p>
                             <button type="button" class="btn  btn-warning btn-lg" onclick="window.location.href='pay-step-1.html'">支持</button>
                             <br><br>
-                            <p>感谢您的支持，在众筹开始后，您将以79元的优惠价格获得“遇见彩虹?”智能插座一件（参考价208元）。</p>
+                            <%--<p>感谢您的支持，在众筹开始后，您将以79元的优惠价格获得“遇见彩虹?”智能插座一件（参考价208元）。</p>--%>
 						</div>
 					</div>
                     
@@ -168,12 +168,7 @@
 							</h3>
 						</div>
 						<div class="panel-body">
-                            <p>1.众筹并非商品交易，存在一定风险。支持者根据自己的判断选择、支持众筹项目，与发起人共同实现梦想并获得发起人承诺的回报。<br>
-2.众筹平台仅提供平台网络空间及技术支持等中介服务，众筹仅存在于发起人和支持者之间，使用众筹平台产生的法律后果由发起人与支持者自行承担。<br>
-3.本项目必须在2017-06-09之前达到￥10000.00 的目标才算成功，否则已经支持的订单将取消。订单取消或募集失败的，您支持的金额将原支付路径退回。<br>
-4.请在支持项目后15分钟内付款，否则您的支持请求会被自动关闭。<br>
-5.众筹成功后由发起人统一进行发货，售后服务由发起人统一提供；如果发生发起人无法发放回报、延迟发放回报、不提供回报后续服务等情况，您需要直接和发起人协商解决。<br>
-6.如您不同意上述风险提示内容，您有权选择不支持；一旦选择支持，视为您已确认并同意以上提示内容。</p>
+                            <p>没有提示</p>
 						</div>
 					</div>
                     
@@ -220,10 +215,10 @@
         <div class="modal-content" data-spy="scroll" data-target="#myScrollspy">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">选择支持项</h4>
+            <h4 class="modal-title" id="myModalLabel">正在开发中</h4>
           </div>
           <div class="modal-body">
-<div class="container-fluid">
+              <div class="container-fluid">
 	<div class="row clearfix">
 		<div class="col-sm-3 col-md-3 column" id="myScrollspy">
             <ul class="nav nav-tabs nav-stacked">
@@ -234,7 +229,7 @@
                 <li class="active"><a href="#section-5">￥1999.00</a></li>
             </ul>
 		</div>
-		<div id="navList" class="col-sm-9 col-md-9 column" style="height:400px;overflow-y:auto;">
+		<%--<div id="navList" class="col-sm-9 col-md-9 column" style="height:400px;overflow-y:auto;">
             <h2 id="section-1" style="border-bottom:1px dashed #ddd;" ><span style="font-size:20px;font-weight:bold;">￥1.00</span><span style="font-size:12px;margin-left:60px;">无限额，223位支持者</span></h2>
             <p>配送费用：全国包邮</p>
             <p>预计发放时间：项目筹款成功后的30天内</p>
@@ -269,7 +264,7 @@
             <button type="button" class="btn  btn-warning btn-lg " onclick="window.location.href='pay-step-1.html'">支持</button>
             <br><br>
             <p>每满1750人抽取一台活性富氢净水直饮机，至少抽取一台。抽取名额（小数点后一位四舍五入）=参与人数÷1750人，由苏宁官方抽取。</p>
-            </div>
+            </div>--%>
         </div>
 	</div>
 </div>

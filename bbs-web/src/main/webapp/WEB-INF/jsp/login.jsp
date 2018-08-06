@@ -96,7 +96,7 @@
         	success : function(result) {
         		layer.close(loadingIndex);
         		if (result.success) {
-        			window.location.href = "main";
+        			window.location.href = "${APP_PATH}/future/showme";
         		} else {
                     layer.msg("不是密码错了就是账号错了", {time:3000, icon:5, shift:6}, function(){
                     	

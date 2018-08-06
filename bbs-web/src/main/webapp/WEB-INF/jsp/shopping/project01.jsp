@@ -84,9 +84,23 @@
                 <div class="col-md-12 column">
                     <div class="row clearfix">
                         <div class="col-md-8 column">
-                            <img alt="140x140" width="740" src="${APP_PATH}/img/product_detail_head.jpg" />
-                            <img alt="140x140" width="740" src="${APP_PATH}/img/product_detail_body.jpg" />
-                           
+                            <%--<img alt="140x140" width="740" src="${APP_PATH}/img/product_detail_head.jpg" />
+                            <img alt="140x140" width="740" src="${APP_PATH}/img/product_detail_body.jpg" />--%>
+                                <video class="lib-video" webkit-playsinline="webkit-playsinline" playsinline="playsinline" autoplay="undefined" poster="//img.alicdn.com/imgextra/i2/6000000002811/TB2F_n.y9VmpuFjSZFFXXcZApXa_!!0-0-tbvideo.jpg_400x400.jpg" data-spm-anchor-id="2013.1.0.i0.505261f8j7VJyb"></video>
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i2/82277914/TB2iAqRrNSYBuNjSsphXXbGvVXa_!!82277914.jpg" class="" width="750" height="855" align="absmiddle">
+                                <img alt="140x140" width="740" src="https://img.alicdn.com/imgextra/i4/82277914/TB2EKm_hASWBuNjSszdXXbeSpXa_!!82277914.jpg">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i2/82277914/TB2Taq2huuSBuNjSsziXXbq8pXa_!!82277914.jpg" class="" data-spm-anchor-id="2013.1.0.i8.5f2861f8ZMRy0G" width="750" height="594" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i4/82277914/TB2FKw6hDtYBeNjy1XdXXXXyVXa_!!82277914.jpg" class="" width="750" height="1090" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i1/82277914/TB2i5SVhAyWBuNjy0FpXXassXXa_!!82277914.jpg" class="" width="750" height="1012" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i3/82277914/TB2Dkbkhx9YBuNjy0FfXXXIsVXa_!!82277914.jpg" class="" width="750" height="1032" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i1/82277914/TB2JT1rhxSYBuNjSsphXXbGvVXa_!!82277914.jpg" class="" width="750" height="827" align="absmiddle">
+                                <img src="https://img.alicdn.com/imgextra/i3/82277914/TB2hfCDXpqZBuNjt_jqXXamzpXa_!!82277914.jpg" class="" style="max-width: 750.0px;" width="750" height="1102" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i1/82277914/TB2rwGGhAOWBuNjSsppXXXPgpXa_!!82277914.jpg" class="" width="750" height="955" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i3/82277914/TB2GikFhDJYBeNjy1zeXXahzVXa_!!82277914.jpg" class="" width="750" height="559" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i2/82277914/TB25zKVhAyWBuNjy0FpXXassXXa_!!82277914.jpg" class="" width="750" height="764" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i3/82277914/TB2n3KQhuSSBuNjy0FlXXbBpVXa_!!82277914.jpg" class="" width="750" height="838" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i4/82277914/TB2fr5phuuSBuNjSsplXXbe8pXa_!!82277914.jpg" class="" width="750" height="846" align="absmiddle">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i2/82277914/TB2zmLahv5TBuNjSspmXXaDRVXa_!!82277914.jpg" class="" width="750" height="1138" align="absmiddle">
                         </div>
                         <div class="col-md-4 column">
                             <div class="panel panel-default" style="border-radius: 0px;">
@@ -143,24 +157,8 @@
                             <p>预计发放时间：7天内</p>
                             <button type="button" class="btn  btn-warning btn-lg" onclick="window.location.href='pay-step-1.html'">支持</button>
                             <br><br>
-                            <%--<p>感谢您的支持，在众筹开始后，您将以79元的优惠价格获得“遇见彩虹?”智能插座一件（参考价208元）。</p>--%>
 						</div>
 					</div>
-                    
-					<%--<div class="panel panel-default" style="border-radius: 0px;">
-						<div class="panel-heading">
-							<h3 >
-								￥149.00 <span style="float:right;font-size:12px;">限额2000位，剩余1966位</span>
-							</h3>
-						</div>
-						<div class="panel-body">
-                            <p>配送费用：包邮</p>
-                            <p>预计发放时间：项目筹款成功后的50天内</p>
-                            <button type="button" class="btn  btn-warning btn-lg" onclick="window.location.href='pay-step-1.html'">支持</button>
-                            <br><br>
-                            <p>感谢您的支持，在众筹开始后，您将以79元的优惠价格获得“遇见彩虹?”智能插座一件（参考价208元）。</p>
-						</div>
-					</div>--%>
 					<div class=" panel panel-default" style="border-radius: 0px;">
 						<div class="panel-heading">
 							<h3 >

@@ -29,31 +29,19 @@
       <form id="loginForm" action="doLogin" method="post" class="form-signin" role="form">
         <h2 class="form-signin-heading"><i class="glyphicon glyphicon-user"></i> login</h2>
 		  <div class="form-group has-success has-feedback">
-			<input type="text" class="form-control" id="username" name="username" placeholder="username" autofocus>
+			<input type="text" class="form-control" id="username" name="username" placeholder="username" value="${cookie.username.value}" autofocus>
 			<span class="glyphicon glyphicon-user form-control-feedback"></span>
 		  </div>
 		  <div class="form-group has-success has-feedback">
-			<input type="password" class="form-control" id="password" name="password" placeholder="password" style="margin-top:10px;">
+			<input type="password" class="form-control" id="password" name="password" placeholder="password" value="${cookie.password.value}"style="margin-top:10px;">
 			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		  </div>
-		  <%--<div class="form-group has-success has-feedback">
-			<select class="form-control" >
-                <option value="member">会员</option>
-                <option value="user">管理</option>
-            </select>
-		  </div>--%>
-       <%-- <div class="checkbox">
+
+        <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> 记住我
+            <input type="checkbox"  id = "remember" name = "remember" value="remember" checked="checked"> remember me
           </label>
-          <br>
-          <label>
-            忘记密码
-          </label>
-          <label style="float:right">
-            <a href="reg.html">我要注册</a>
-          </label>
-        </div>--%>
+        </div>
         <a class="btn btn-lg btn-success btn-block" onclick="dologin()" > 登录</a>
       </form>
     </div>
@@ -87,6 +75,7 @@
             });
         	return;
         }
+        var remember = $("#remember").val();
         
         // 提交表单
         //alert("提交表单");
@@ -98,7 +87,8 @@
         	url  : "doAJAXLogin",
         	data : {
         		"username" : username,
-        		"password"  : password
+        		"password"  : password,
+                "remember":remember
         	},
         	beforeSend : function(){
         		loadingIndex = layer.msg('处理中', {icon: 16});

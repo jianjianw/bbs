@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
@@ -41,7 +43,7 @@ public class DispatcherController {
 
     @RequestMapping("/doAJAXLogin")
     @ResponseBody
-    public AJAXResult doAJAXLogin(User user, HttpSession session){
+    public AJAXResult doAJAXLogin(User user, HttpSession session,String remember,HttpServletResponse response){
         AJAXResult result = new AJAXResult();
         User dbUser = userService.doAJAXLogin(user);
         if(dbUser != null){
@@ -72,6 +74,23 @@ public class DispatcherController {
             }
             session.setAttribute("rootPermission", root);//将该用户的权限列表封装成权限树
             session.setAttribute("loginUser",dbUser);
+
+
+            if(StringUtils.isNotEmpty(remember)){
+                //将用户信息写入cookie中
+                Cookie cookieUsername = new Cookie("username",user.getUsername());
+                Cookie cookiePassword = new Cookie("password",user.getPassword());
+
+                cookieUsername.setMaxAge(60*60*60*180);
+                cookieUsername.setPath("/");
+
+                cookiePassword.setMaxAge(60*60*60*180);
+                cookiePassword.setPath("/");
+
+                response.addCookie(cookieUsername);
+                response.addCookie(cookiePassword);
+
+            }
             result.setSuccess(true);
         }else{
             result.setSuccess(false);

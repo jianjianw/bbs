@@ -63,16 +63,17 @@
             <div id="main1" style="width: 600px;height:400px;">
 
                 <form class="form-horizontal" role="form" id = "weightForm">
+                    <input type="hidden" name="userId" value="${loginUser.userId}">
                     <div class="form-group">
-                        <label for="firstname" class="col-sm-2 control-label">体重</label>
+                        <label  class="col-sm-2 control-label">体重</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="firstname" name="" placeholder="kg">
+                            <input type="text" class="form-control" name = "weight" id="weight"  placeholder="kg">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="lastname" class="col-sm-2 control-label">腰围</label>
+                        <label  class="col-sm-2 control-label">腰围</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="lastname" name="" placeholder="cm">
+                            <input type="text" class="form-control" name = "waist" id="waist"  placeholder="cm   腰围可以为空">
                         </div>
                     </div>
                     <div class="form-group">
@@ -152,7 +153,7 @@ option = {
     xAxis:  {
         type: 'category',
         boundaryGap: false,
-        data: ['2017-05-16','2017-05-17','2017-05-18','2017-05-19','2017-05-20','2017-05-21','2017-05-22']
+        data: []
     },
     yAxis: {
         type: 'value',
@@ -226,31 +227,26 @@ $.ajax({
 });
 
 function save(){
+    var weight = $("#weight").val();
+    // 表单元素的value取值不会为null, 取值是空字符串
+    if ( weight == "" ) {
+        alert("体重不能为空");
+        return;
+    }
+
     $.ajax({
         type : "POST",
-        url  : ${APP_PATH}"/weight/save",
+        url  : ${APP_PATH}"/weight/saveOrUpdate",
         data : $("#weightForm").serialize(),
         success : function(result) {
             if (result.success) {
-                layer.msg("数据保存成功", {time:2000, icon:6, shift:6}, function(){
-
-                });
-
-                $("#weightForm")[0].reset();
+                alert("数据保存成功");
             } else {
-                layer.msg("数据保存失败", {time:2000, icon:5, shift:6}, function(){
-
-                });
+                alert("数据保存失败");
             }
         }
     });
 }
-//清空表单
-$("#resetBtn").click(function(){
-    // Jquery[0] ==> DOM
-    // $(DOM) ==> Jquery
-    $("#userForm")[0].reset();
-});
 /*var myChart2 = echarts.init(document.getElementById('main2'));
 
         // 指定图表的配置项和数据

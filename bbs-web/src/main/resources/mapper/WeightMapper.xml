@@ -4,4 +4,12 @@
 <mapper namespace="cn.saymyname.dao.WeightMapper" >
 
 
+    <select id = "findWeightByUserIdAndDateStr" resultType="realTimeWeight" parameterType="realTimeWeight">
+        SELECT * from real_time_weight where user_id = #{userId} and date_str = #{dateStr}
+    </select>
+
+    <update id="update"  parameterType="realTimeWeight">
+          UPDATE real_time_weight set weight = #{weight},waist = #{waist} where  id = #{id}
+    </update>
+
 </mapper>

@@ -9,8 +9,12 @@ public class RealTimeWeight implements Serializable {
 
     private int id;
     private String dateStr;
-    private BigDecimal weigth;
+    private BigDecimal weight;
     private Date createTime;
+    private BigDecimal waist;
+    private Integer userId;
+
+
 
     public int getId() {
         return id;
@@ -28,12 +32,12 @@ public class RealTimeWeight implements Serializable {
         this.dateStr = dateStr;
     }
 
-    public BigDecimal getWeigth() {
-        return weigth;
+    public BigDecimal getWeight() {
+        return weight;
     }
 
-    public void setWeigth(BigDecimal weigth) {
-        this.weigth = weigth;
+    public void setWeight(BigDecimal weight) {
+        this.weight = weight;
     }
 
     public Date getCreateTime() {
@@ -42,5 +46,21 @@ public class RealTimeWeight implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public BigDecimal getWaist() {
+        return waist;
+    }
+
+    public void setWaist(BigDecimal waist) {
+        this.waist = waist;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

@@ -15,4 +15,14 @@ public class WeightServiceImpl implements WeightService {
     public void save(RealTimeWeight realTimeWeight) {
         weightMapper.save(realTimeWeight);
     }
+
+    @Override
+    public RealTimeWeight findWeightByUserIdAndDateStr(RealTimeWeight realTimeWeight) {
+        return weightMapper.findWeightByUserIdAndDateStr(realTimeWeight);
+    }
+
+    @Override
+    public void update(RealTimeWeight realTimeWeight) {
+        weightMapper.update(realTimeWeight);
+    }
 }

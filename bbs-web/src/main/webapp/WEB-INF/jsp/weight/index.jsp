@@ -158,14 +158,14 @@ option = {
     yAxis: {
         type: 'value',
         axisLabel: {
-            formatter: '{value} '
+            formatter: '{value}'
         }
     },
     series: [
         {
             name:'体重',
             type:'line',
-            data:[1, 1, 5, 3, 2, 3, 2],
+            data:[],
             markPoint: {
                 data: [
                     {type: 'max', name: '最大值'},
@@ -181,7 +181,7 @@ option = {
         {
             name:'腰围',
             type:'line',
-            data:[1, -2, 2, 5, 3, 2, 4],
+            data:[],
             markPoint: {
                 data: [
                     {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
@@ -211,14 +211,33 @@ option = {
     ]
 };
 myChart.showLoading();
-//发送ajax
+/*//发送ajax
 $.ajax({
     type : "POST",
-    url  : ${APP_PATH}"/date/findDates",
+    url  : {APP_PATH}"/date/findDates",
     success : function(result) {
         if (result.success) {
             myChart.hideLoading();
             option.xAxis.data = result.data;
+            myChart.setOption(option);
+        } else {
+            alert("数据加载失败");
+        }
+    }
+});*/
+
+$.ajax({
+    type : "POST",
+    url  : ${APP_PATH}"/weight/findUserIdByRealTimeWeight",
+    data : {
+        "userId":${loginUser.userId}
+    },
+    success : function(result) {
+        if (result.success) {
+            myChart.hideLoading();
+            option.xAxis.data = result.data.dates;
+            option.series[0].data = result.data.weight;
+            option.series[1].data = result.data.waist;
             myChart.setOption(option);
         } else {
             alert("数据加载失败");
@@ -247,50 +266,7 @@ function save(){
         }
     });
 }
-/*var myChart2 = echarts.init(document.getElementById('main2'));
 
-        // 指定图表的配置项和数据
-option2 = {
-    title : {
-        text: '某站点用户访问来源',
-        subtext: '纯属虚构',
-        x:'center'
-    },
-    tooltip : {
-        trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
-    },
-    legend: {
-        orient: 'vertical',
-        left: 'left',
-        data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
-    },
-    series : [
-        {
-            name: '访问来源',
-            type: 'pie',
-            radius : '55%',
-            center: ['50%', '60%'],
-            data:[
-                {value:335, name:'直接访问'},
-                {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
-                {value:135, name:'视频广告'},
-                {value:1548, name:'搜索引擎'}
-            ],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            }
-        }
-    ]
-};
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart2.setOption(option2);*/
 	</script>
   </body>
 </html>

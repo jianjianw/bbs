@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 @RequestMapping("/weight")
 @Controller
@@ -65,4 +65,39 @@ public class WeightController {
 
         return result;
     }
+    @ResponseBody
+    @RequestMapping("/findUserIdByRealTimeWeight")
+    public AJAXResult findUserIdByRealTimeWeight(Integer userId){
+        AJAXResult result = new AJAXResult();
+        Map<String,Object> map = new HashMap<>();
+        List<BigDecimal> weight = new ArrayList<>();
+        List<BigDecimal> waist = new ArrayList<>();
+        List<String> dates = new ArrayList<>();
+
+        try {
+
+            List<RealTimeWeight> realTimeWeights =  weightService.findUserIdByRealTimeWeight(userId);
+            Comparator<RealTimeWeight> comparing = Comparator.comparing(RealTimeWeight::getDateStr);
+            realTimeWeights.sort(comparing);//默认是升序
+
+            if(realTimeWeights != null && realTimeWeights.size()>=8){//获取最近7天的数据
+                realTimeWeights = realTimeWeights.subList(realTimeWeights.size() - 7, realTimeWeights.size());
+            }
+            for (RealTimeWeight realTimeWeight : realTimeWeights){
+                weight.add(realTimeWeight.getWeight());
+                waist.add(realTimeWeight.getWaist());
+                dates.add(realTimeWeight.getDateStr());
+            }
+            map.put("weight",weight);
+            map.put("waist",waist);
+            map.put("dates",dates);
+            result.setData(map);
+            result.setSuccess(true);
+        } catch (Exception e) {
+            result.setSuccess(false);
+        }
+
+        return result;
+    }
+
 }

@@ -6,6 +6,8 @@ import cn.saymyname.service.WeightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WeightServiceImpl implements WeightService {
 
@@ -24,5 +26,10 @@ public class WeightServiceImpl implements WeightService {
     @Override
     public void update(RealTimeWeight realTimeWeight) {
         weightMapper.update(realTimeWeight);
+    }
+
+    @Override
+    public List<RealTimeWeight> findUserIdByRealTimeWeight(Integer userId) {
+        return weightMapper.findUserIdByRealTimeWeight(userId);
     }
 }

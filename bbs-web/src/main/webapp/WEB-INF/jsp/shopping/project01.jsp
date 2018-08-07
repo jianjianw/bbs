@@ -84,23 +84,21 @@
                 <div class="col-md-12 column">
                     <div class="row clearfix">
                         <div class="col-md-8 column">
-                            <%--<img alt="140x140" width="740" src="${APP_PATH}/img/product_detail_head.jpg" />
-                            <img alt="140x140" width="740" src="${APP_PATH}/img/product_detail_body.jpg" />--%>
-                                <video class="lib-video" webkit-playsinline="webkit-playsinline" playsinline="playsinline" autoplay="undefined" poster="//img.alicdn.com/imgextra/i2/6000000002811/TB2F_n.y9VmpuFjSZFFXXcZApXa_!!0-0-tbvideo.jpg_400x400.jpg" data-spm-anchor-id="2013.1.0.i0.505261f8j7VJyb"></video>
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i2/82277914/TB2iAqRrNSYBuNjSsphXXbGvVXa_!!82277914.jpg" class="" width="750" height="855" align="absmiddle">
-                                <img alt="140x140" width="740" src="https://img.alicdn.com/imgextra/i4/82277914/TB2EKm_hASWBuNjSszdXXbeSpXa_!!82277914.jpg">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i2/82277914/TB2Taq2huuSBuNjSsziXXbq8pXa_!!82277914.jpg" class="" data-spm-anchor-id="2013.1.0.i8.5f2861f8ZMRy0G" width="750" height="594" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i4/82277914/TB2FKw6hDtYBeNjy1XdXXXXyVXa_!!82277914.jpg" class="" width="750" height="1090" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i1/82277914/TB2i5SVhAyWBuNjy0FpXXassXXa_!!82277914.jpg" class="" width="750" height="1012" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i3/82277914/TB2Dkbkhx9YBuNjy0FfXXXIsVXa_!!82277914.jpg" class="" width="750" height="1032" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i1/82277914/TB2JT1rhxSYBuNjSsphXXbGvVXa_!!82277914.jpg" class="" width="750" height="827" align="absmiddle">
-                                <img src="https://img.alicdn.com/imgextra/i3/82277914/TB2hfCDXpqZBuNjt_jqXXamzpXa_!!82277914.jpg" class="" style="max-width: 750.0px;" width="750" height="1102" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i1/82277914/TB2rwGGhAOWBuNjSsppXXXPgpXa_!!82277914.jpg" class="" width="750" height="955" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i3/82277914/TB2GikFhDJYBeNjy1zeXXahzVXa_!!82277914.jpg" class="" width="750" height="559" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i2/82277914/TB25zKVhAyWBuNjy0FpXXassXXa_!!82277914.jpg" class="" width="750" height="764" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i3/82277914/TB2n3KQhuSSBuNjy0FlXXbBpVXa_!!82277914.jpg" class="" width="750" height="838" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i4/82277914/TB2fr5phuuSBuNjSsplXXbe8pXa_!!82277914.jpg" class="" width="750" height="846" align="absmiddle">
-                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i2/82277914/TB2zmLahv5TBuNjSspmXXaDRVXa_!!82277914.jpg" class="" width="750" height="1138" align="absmiddle">
+
+                                <video style="max-width: 750.0px;"controls autoplay>
+                                    <%--<source src="https://jdvodoss.jcloudcache.com/vodtransgzp1251412368/7447398156279055074/v.f30.mp4?dockingId=ac9a086e-173c-4d91-be40-055d231d7a9d&storageSource=3" type="video/ogg">--%>
+                                    <source src="${APP_PATH}/img/b01.mp4" >
+                                </video>
+                                <img style="max-width: 750.0px;" src="${APP_PATH}/img/p3.jpg">
+                                <img style="max-width: 750.0px;" src="${APP_PATH}/img/p4.jpg">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i3/1976399953/TB2uv4wuZuYBuNkSmRyXXcA3pXa_!!1976399953.jpg">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i3/1976399953/TB28P.IDamWBuNjy1XaXXXCbXXa_!!1976399953.jpg">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i4/1976399953/TB29xe5Db1YBuNjSszhXXcUsFXa_!!1976399953.jpg">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i3/1976399953/TB2izobDf1TBuNjy0FjXXajyXXa_!!1976399953.jpg">
+                                <img style="max-width: 750.0px;" src="https://img.alicdn.com/imgextra/i4/1976399953/TB2yEh1u8yWBuNkSmFPXXXguVXa_!!1976399953.jpg">
+                                <img style="max-width: 750.0px;" src="https://gd1.alicdn.com/imgextra/i2/684469712/TB2KrgcmNTI8KJjSspiXXbM4FXa_!!684469712.jpg">
+                                <img style="max-width: 750.0px;" src="${APP_PATH}/img/p5.jpg">
+
                         </div>
                         <div class="col-md-4 column">
                             <div class="panel panel-default" style="border-radius: 0px;">
@@ -109,13 +107,13 @@
                                 </div>
                                 <div class="panel-body">
                                     <h3 >
-                                        价格：￥50000.00
+                                        价格：￥5600.00
                                     </h3>
-                                    <p><span>目标金额 ： 1000.00</span><span style="float:right;">达成 ： 60%</span></p>
+                                    <p><span>原价 ： ￥5600.00</span><span style="float:right;">达成 ： 60%</span></p>
                                     <div class="progress" style="height:10px; margin-bottom: 5px;">
                                       <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
                                     </div>
-                                    <p>剩余 15 天</p>
+                                    <p>剩余 5 件</p>
                                     <div>
                                      <button type="button" class="btn  btn-warning btn-lg btn-block" data-toggle="modal" data-target="#myModal">购买</button>
                                     </div>
@@ -173,7 +171,7 @@
                     <div><h2>为你推荐</h2><hr></div>
 					<div class="prjtip panel panel-default" style="border-radius: 0px;">
 						<div class="panel-body">
-                            <img src="${APP_PATH}/img/product-3.png" width="100%" height="100%">
+                            <img src="${APP_PATH}/img/product-3.jpg" width="100%" height="100%">
 						</div>
 					</div>
                     

@@ -3,6 +3,10 @@ package cn.saymyname.controller;
 import cn.saymyname.bean.AJAXResult;
 import cn.saymyname.bean.RealTimeWeight;
 import cn.saymyname.service.WeightService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +19,8 @@ import java.util.*;
 @RequestMapping("/weight")
 @Controller
 public class WeightController {
+
+    private static Logger logger = LoggerFactory.getLogger(WeightController.class);
 
 
     @Autowired
@@ -39,7 +45,14 @@ public class WeightController {
     @RequestMapping("/saveOrUpdate")
     public AJAXResult saveOrUpdate(RealTimeWeight realTimeWeight){
         AJAXResult result = new AJAXResult();
-
+        String json = null;
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            json = mapper.writeValueAsString(realTimeWeight);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        logger.info(json);
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -61,6 +74,7 @@ public class WeightController {
             }
         } catch (Exception e) {
             result.setSuccess(false);
+            logger.info(e.getMessage());
         }
 
         return result;

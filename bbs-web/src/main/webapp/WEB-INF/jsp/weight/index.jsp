@@ -211,24 +211,9 @@ option = {
     ]
 };
 myChart.showLoading();
-/*//发送ajax
 $.ajax({
     type : "POST",
-    url  : {APP_PATH}"/date/findDates",
-    success : function(result) {
-        if (result.success) {
-            myChart.hideLoading();
-            option.xAxis.data = result.data;
-            myChart.setOption(option);
-        } else {
-            alert("数据加载失败");
-        }
-    }
-});*/
-
-$.ajax({
-    type : "POST",
-    url  : ${APP_PATH}"/weight/findUserIdByRealTimeWeight",
+    url  : "${APP_PATH}/weight/findUserIdByRealTimeWeight",
     data : {
         "userId":${loginUser.userId}
     },
@@ -255,7 +240,7 @@ function save(){
 
     $.ajax({
         type : "POST",
-        url  : ${APP_PATH}"/weight/saveOrUpdate",
+        url  : "${APP_PATH}/weight/saveOrUpdate",
         data : $("#weightForm").serialize(),
         success : function(result) {
             if (result.success) {

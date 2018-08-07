@@ -19,25 +19,6 @@
         .tree-closed {
             height : 40px;
         }
-        body {
-            font-family: Monospace;
-            background-color: #000;
-            color: #000;
-            margin: 0px;
-            overflow: hidden;
-        }
-
-        #info {
-            position: absolute;
-            padding: 10px;
-            width: 100%;
-            text-align: center;
-        }
-
-        a {
-            text-decoration: underline;
-            cursor: pointer;
-        }
 
     </style>
 </head>
@@ -91,28 +72,18 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">控制面板</h1>
 
-    <%--<div id="main" style="width: 600px;height:400px;">
-        我看见过波澜壮阔的带花我看见过波澜壮阔的带花我看见过波澜壮阔的带花我看见过波澜壮阔的带花我看见过波澜壮阔的带花
-    </div>--%>
-    <div id="info">Simple Cloth Simulation<br/>
-        Verlet integration with relaxed constraints<br/>
-        <a onclick="wind = !wind;">Wind</a> |
-        <a onclick="sphere.visible = !sphere.visible;">Ball</a> |
-        <a onclick="togglePins();">Pins</a>
+    <div id="main" style="width: 1000px;height:800px;">
     </div>
+
 </div>
 
 
 <script src="${APP_PATH}/jquery/jquery-2.1.1.min.js"></script>
 <script src="${APP_PATH}/bootstrap/js/bootstrap.min.js"></script>
 <script src="${APP_PATH}/script/docs.min.js"></script>
+<script src="${APP_PATH}/script/echarts.js"></script>
 
-<script src="${APP_PATH}/script/three.js"></script>
-<script src="${APP_PATH}/script/Detector.js"></script>
-<script src="${APP_PATH}/script/OrbitControls.js"></script>
-<script src="${APP_PATH}/script/stats.min.js"></script>
 
-<script src="js/Cloth.js"></script>
 <script type="text/javascript">
     $(function () {
         $(".list-group-item").click(function(){
@@ -128,268 +99,167 @@
             }
         });
     });
+    var myChart = echarts.init(document.getElementById('main'));
 
+    var base = +new Date(2016, 9, 3);
+    var oneDay = 24 * 3600 * 1000;
+    var valueBase = Math.random() * 300;
+    var valueBase2 = Math.random() * 50;
+    var data = [];
+    var data2 = [];
 
-    var pinsFormation = [];
-    var pins = [ 6 ];
+    for (var i = 1; i < 10; i++) {
+        var now = new Date(base += oneDay);
+        var dayStr = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-');
 
-    pinsFormation.push( pins );
+        valueBase = Math.round((Math.random() - 0.5) * 20 + valueBase);
+        valueBase <= 0 && (valueBase = Math.random() * 300);
+        data.push([dayStr, valueBase]);
 
-    pins = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
-    pinsFormation.push( pins );
-
-    pins = [ 0 ];
-    pinsFormation.push( pins );
-
-    pins = []; // cut the rope ;)
-    pinsFormation.push( pins );
-
-    pins = [ 0, cloth.w ]; // classic 2 pins
-    pinsFormation.push( pins );
-
-    pins = pinsFormation[ 1 ];
-
-
-    function togglePins() {
-
-        pins = pinsFormation[ ~~ ( Math.random() * pinsFormation.length ) ];
-
+        valueBase2 = Math.round((Math.random() - 0.5) * 20 + valueBase2);
+        valueBase2 <= 0 && (valueBase2 = Math.random() * 50);
+        data2.push([dayStr, valueBase2]);
     }
 
-    if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+    option = {
+        animation: false,
+        title: {
+            left: 'center',
+            text: '触屏 tooltip 和 dataZoom 示例',
+            subtext: '"tootip" and "dataZoom" on mobile device',
+        },
+        legend: {
+            top: 'bottom',
+            data:['意向']
+        },
+        tooltip: {
+            triggerOn: 'none',
+            position: function (pt) {
+                return [pt[0], 130];
+            }
+        },
+        toolbox: {
+            left: 'center',
+            itemSize: 25,
+            top: 55,
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                restore: {}
+            }
+        },
+        xAxis: {
+            type: 'time',
+            // boundaryGap: [0, 0],
+            axisPointer: {
+                value: '2016-10-7',
+                snap: true,
+                lineStyle: {
+                    color: '#004E52',
+                    opacity: 0.5,
+                    width: 2
+                },
+                label: {
+                    show: true,
+                    formatter: function (params) {
+                        return echarts.format.formatTime('yyyy-MM-dd', params.value);
+                    },
+                    backgroundColor: '#004E52'
+                },
+                handle: {
+                    show: true,
+                    color: '#004E52'
+                }
+            },
+            splitLine: {
+                show: false
+            }
+        },
+        yAxis: {
+            type: 'value',
+            axisTick: {
+                inside: true
+            },
+            splitLine: {
+                show: false
+            },
+            axisLabel: {
+                inside: true,
+                formatter: '{value}\n'
+            },
+            z: 10
+        },
+        grid: {
+            top: 110,
+            left: 15,
+            right: 15,
+            height: 160
+        },
+        dataZoom: [{
+            type: 'inside',
+            throttle: 50
+        }],
+        series: [
+            {
+                name:'模拟数据',
+                type:'line',
+                smooth: true,
+                symbol: 'circle',
+                symbolSize: 5,
+                sampling: 'average',
+                itemStyle: {
+                    normal: {
+                        color: '#8ec6ad'
+                    }
+                },
+                stack: 'a',
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#8ec6ad'
+                        }, {
+                            offset: 1,
+                            color: '#ffe'
+                        }])
+                    }
+                },
+                data: data
+            },
+            {
+                name:'模拟数据',
+                type:'line',
+                smooth:true,
+                stack: 'a',
+                symbol: 'circle',
+                symbolSize: 5,
+                sampling: 'average',
+                itemStyle: {
+                    normal: {
+                        color: '#d68262'
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#d68262'
+                        }, {
+                            offset: 1,
+                            color: '#ffe'
+                        }])
+                    }
+                },
+                data: data2
+            }
+
+        ]
+    };
+
+    myChart.setOption(option);
 
-    var container, stats;
-    var camera, scene, renderer;
 
-    var clothGeometry;
-    var sphere;
-    var object;
-
-    init();
-    animate();
-
-    function init() {
-
-        container = document.createElement( 'div' );
-        document.body.appendChild( container );
-
-        // scene
-
-        scene = new THREE.Scene();
-        scene.background = new THREE.Color( 0xcce0ff );
-        scene.fog = new THREE.Fog( 0xcce0ff, 500, 10000 );
-
-        // camera
-
-        camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 10000 );
-        camera.position.set( 1000, 50, 1500 );
-
-        // lights
-
-        var light, materials;
-
-        scene.add( new THREE.AmbientLight( 0x666666 ) );
-
-        light = new THREE.DirectionalLight( 0xdfebff, 1 );
-        light.position.set( 50, 200, 100 );
-        light.position.multiplyScalar( 1.3 );
-
-        light.castShadow = true;
-
-        light.shadow.mapSize.width = 1024;
-        light.shadow.mapSize.height = 1024;
-
-        var d = 300;
-
-        light.shadow.camera.left = - d;
-        light.shadow.camera.right = d;
-        light.shadow.camera.top = d;
-        light.shadow.camera.bottom = - d;
-
-        light.shadow.camera.far = 1000;
-
-        scene.add( light );
-
-        // cloth material
-
-        var loader = new THREE.TextureLoader();
-        var clothTexture = loader.load( 'textures/patterns/circuit_pattern.png' );
-        clothTexture.anisotropy = 16;
-
-        var clothMaterial = new THREE.MeshLambertMaterial( {
-            map: clothTexture,
-            side: THREE.DoubleSide,
-            alphaTest: 0.5
-        } );
-
-        // cloth geometry
-
-        clothGeometry = new THREE.ParametricGeometry( clothFunction, cloth.w, cloth.h );
-
-        // cloth mesh
-
-        object = new THREE.Mesh( clothGeometry, clothMaterial );
-        object.position.set( 0, 0, 0 );
-        object.castShadow = true;
-        scene.add( object );
-
-        object.customDepthMaterial = new THREE.MeshDepthMaterial( {
-
-            depthPacking: THREE.RGBADepthPacking,
-            map: clothTexture,
-            alphaTest: 0.5
-
-        } );
-
-        // sphere
-
-        var ballGeo = new THREE.SphereBufferGeometry( ballSize, 32, 16 );
-        var ballMaterial = new THREE.MeshLambertMaterial();
-
-        sphere = new THREE.Mesh( ballGeo, ballMaterial );
-        sphere.castShadow = true;
-        sphere.receiveShadow = true;
-        scene.add( sphere );
-
-        // ground
-
-        var groundTexture = loader.load( 'textures/terrain/grasslight-big.jpg' );
-        groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
-        groundTexture.repeat.set( 25, 25 );
-        groundTexture.anisotropy = 16;
-
-        var groundMaterial = new THREE.MeshLambertMaterial( { map: groundTexture } );
-
-        var mesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 20000, 20000 ), groundMaterial );
-        mesh.position.y = - 250;
-        mesh.rotation.x = - Math.PI / 2;
-        mesh.receiveShadow = true;
-        scene.add( mesh );
-
-        // poles
-
-        var poleGeo = new THREE.BoxBufferGeometry( 5, 375, 5 );
-        var poleMat = new THREE.MeshLambertMaterial();
-
-        var mesh = new THREE.Mesh( poleGeo, poleMat );
-        mesh.position.x = - 125;
-        mesh.position.y = - 62;
-        mesh.receiveShadow = true;
-        mesh.castShadow = true;
-        scene.add( mesh );
-
-        var mesh = new THREE.Mesh( poleGeo, poleMat );
-        mesh.position.x = 125;
-        mesh.position.y = - 62;
-        mesh.receiveShadow = true;
-        mesh.castShadow = true;
-        scene.add( mesh );
-
-        var mesh = new THREE.Mesh( new THREE.BoxBufferGeometry( 255, 5, 5 ), poleMat );
-        mesh.position.y = - 250 + ( 750 / 2 );
-        mesh.position.x = 0;
-        mesh.receiveShadow = true;
-        mesh.castShadow = true;
-        scene.add( mesh );
-
-        var gg = new THREE.BoxBufferGeometry( 10, 10, 10 );
-        var mesh = new THREE.Mesh( gg, poleMat );
-        mesh.position.y = - 250;
-        mesh.position.x = 125;
-        mesh.receiveShadow = true;
-        mesh.castShadow = true;
-        scene.add( mesh );
-
-        var mesh = new THREE.Mesh( gg, poleMat );
-        mesh.position.y = - 250;
-        mesh.position.x = - 125;
-        mesh.receiveShadow = true;
-        mesh.castShadow = true;
-        scene.add( mesh );
-
-        // renderer
-
-        renderer = new THREE.WebGLRenderer( { antialias: true } );
-        renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight );
-
-        container.appendChild( renderer.domElement );
-
-        renderer.gammaInput = true;
-        renderer.gammaOutput = true;
-
-        renderer.shadowMap.enabled = true;
-
-        // controls
-        var controls = new THREE.OrbitControls( camera, renderer.domElement );
-        controls.maxPolarAngle = Math.PI * 0.5;
-        controls.minDistance = 1000;
-        controls.maxDistance = 5000;
-
-        // performance monitor
-
-        stats = new Stats();
-        container.appendChild( stats.dom );
-
-        //
-
-        window.addEventListener( 'resize', onWindowResize, false );
-
-        sphere.visible = ! true;
-
-    }
-
-    //
-
-    function onWindowResize() {
-
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-
-        renderer.setSize( window.innerWidth, window.innerHeight );
-
-    }
-
-    //
-
-    function animate() {
-
-        requestAnimationFrame( animate );
-
-        var time = Date.now();
-
-        var windStrength = Math.cos( time / 7000 ) * 20 + 40;
-
-        windForce.set( Math.sin( time / 2000 ), Math.cos( time / 3000 ), Math.sin( time / 1000 ) )
-        windForce.normalize()
-        windForce.multiplyScalar( windStrength );
-
-        simulate( time );
-        render();
-        stats.update();
-
-    }
-
-    function render() {
-
-        var p = cloth.particles;
-
-        for ( var i = 0, il = p.length; i < il; i ++ ) {
-
-            clothGeometry.vertices[ i ].copy( p[ i ].position );
-
-        }
-
-        clothGeometry.verticesNeedUpdate = true;
-
-        clothGeometry.computeFaceNormals();
-        clothGeometry.computeVertexNormals();
-
-        sphere.position.copy( ballPosition );
-
-        renderer.render( scene, camera );
-
-    }
 
 </script>
 </body>

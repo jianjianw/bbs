@@ -15,7 +15,6 @@ public class ServerStartupListener implements ServletContextListener {
         ServletContext servletContext = sce.getServletContext();
         String contextPath = servletContext.getContextPath();
         servletContext.setAttribute("APP_PATH",contextPath);
-        logger.info("---------------------------------qwe"+contextPath);
         System.out.println(contextPath);
     }
 

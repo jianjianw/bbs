@@ -42,13 +42,9 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         if(uriSet.contains(requestURI)){
             ObjectMapper mapper = new ObjectMapper();
             String uriSetString = mapper.writeValueAsString(uriSet);
-            logger.info("requestURI-----------："+requestURI);
-            logger.info("contextPath-----------："+contextPath);
-            logger.info("uriSetString-----------："+uriSetString);
             //判断该该访问路径是否合法
             //获取该用户的合法访问路径
             Set<String> authUriSet = (Set)request.getSession().getAttribute("authUriSet");
-            logger.info("authUriSet-----------："+authUriSet);
             if(authUriSet.contains(requestURI)){
                 return true;
             }else{
